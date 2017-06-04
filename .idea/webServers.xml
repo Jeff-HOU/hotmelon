@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="ab7005c5-abef-4e4e-9d08-bb73d035e5a2" name="Hotmelon" url="http://34.208.199.223">
+        <fileTransfer host="34.208.199.223" port="22" privateKey="C:\Users\Daniel\.ssh\hotmelon.pem" rootFolder="/var/www" accessType="SFTP" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

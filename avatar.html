@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hot Melon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="css/tether.min.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/tether.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script>
+        window.onload = function(){handleClientLoad()};
+
+        function handleClientLoad() {
+            console.log("loading");
+            gapi.load("client:auth2", initClient);
+        }
+
+        function initClient() {
+            console.log("initiating");
+            gapi.client.init({
+                apiKey:"AIzaSyDsJ9M5K0R7HudCsfQCHCOx4qevfwJJx3g",
+                discoveryDocs: ["https://www.googleapis.com/discovery/v1/apis/people/v1/rest"],
+                clientId: "94230008778-s8lj3e5fjb3psgcu2icj05jud0nqhial.apps.googleusercontent.com",
+                scope: 'profile'
+            }).then(function(){
+                gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+                updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+            });
+        }
+        function updateSigninStatus(isSignedIn) {
+            if (isSignedIn) {
+                makeApiCall();
+            }
+        }
+
+        function handleSignInClick(event) {
+            gapi.auth2.getAuthInstance().signIn();
+        }
+
+        function handleSignOutClick(event) {
+            gapi.auth2.getAuthInstance().signOut();
+        }
+
+        function makeApiCall() {
+            gapi.client.people.people.get({
+                "resourceName": "people/me",
+                "requestMask.includeField": "person.photos"
+            }).then(function(response) {
+                $(`<img src="${response.result.photos[0].url}">`).appendTo($("body"));
+            }, function(reason) {
+                console.log('Error: ' + reason.result.error.message);
+            });
+        }
+    </script>
+
+</head>
+<body>
+<main class="fill-height d-flex justify-content-center">
+    <button id="signin-button" onclick="handleSignInClick()">Sign In</button>
+    <button id="signout-button" onclick="handleSignOutClick()">Sign Out</button>
+</main>
+</body>
+</html>

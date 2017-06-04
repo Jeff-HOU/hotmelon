@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="Hotmelon">
+    <serverData>
+      <paths name="Hotmelon">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/html" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath path="/html.bak" />
+            <excludedPath path="/html/COMP2021projecct" />
+            <excludedPath path="/html/COMP2021project" />
+            <excludedPath path="/html/ports" />
+            <excludedPath path="/html/preview" />
+            <excludedPath path="/html/Screen Shot 2017-06-02 at 23.07.13.png" />
+            <excludedPath path="/html/A.php" />
+            <excludedPath path="/html/info.php" />
+            <excludedPath path="/html/index.html.bak" />
+            <excludedPath path="/html/controlPath.php" />
+            <excludedPath path="/html/displayCookie.php" />
+            <excludedPath path="/html/index.php.bak" />
+            <excludedPath path="/html/control1.php" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
