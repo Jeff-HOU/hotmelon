@@ -159,7 +159,7 @@ header("Access-Control-Allow-Origin: *");
     <main class="melon-main d-flex justify-content-center flex-column">
         <section class="melon-hero">
             <img src="images/hotmelon.png" alt="Hot Melon Logo">
-            <button class="btn btn-primary btn-lg" id="btn-upload-file">Upload Tex</button>
+            <button class="btn btn-primary btn-lg" id="btn-upload-file">Upload Latex Project as ZIP</button>
             <?php /*<button class="btn btn-primary btn-lg" id="btn-drive-choose">2. Choose Drive Location</button>
             <a class="btn btn-primary btn-lg" id="btn-use-melon" href="chat.php">2. Next</a>*/?>
             <form method="POST" enctype="multipart/form-data">

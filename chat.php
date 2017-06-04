@@ -13,9 +13,9 @@ $photos = $people->people->get("people/me", array(
     'requestMask.includeField'=>'person.photos'
 ));
 
+
 if (isset($_GET["name"])) {
-    if(shell_exec("python3 /json2markdown.py https://hotmelon-655ec.firebaseio.com/.json ${$_GET["name"]} md.md
-")) {
+    if(shell_exec("python3 /home/ubuntu/json2markdown.py https://hotmelon-655ec.firebaseio.com/.json {$_GET["name"]} md.md")) {
         $str = shell_exec("md2gslides -n md.md");
     }
 }
@@ -84,7 +84,10 @@ if (isset($_GET["name"])) {
     </script>
     <?php
     if (isset($str)) {
-        echo "<script>var link = $str</script>";
+        echo "<script>var link = '$str'</script>";
+    }
+    if (isset($_GET["name"])) {
+        echo "<script>var key = '{$_GET["name"]}'</script>";
     }
     ?>
 
@@ -99,7 +102,7 @@ if (isset($_GET["name"])) {
             </p>
         </div>
 
-        <div style="width:100%;position:absolute;text-align:center;bottom:50px;left:0;">
+        <div style="width:100%;position:absolute;text-align:center;bottom:30px;left:0;">
             <div class="btn-group" role="group" aria-label="Basic example">
                 <button type="button" class="btn btn-secondary" onclick="prev()">prev</button>
                 <button type="button" class="btn btn-secondary" onclick="next()">next</button>
@@ -216,7 +219,7 @@ if (isset($_GET["name"])) {
     }
     var index = 2;
     var ppt_content = {};
-    var fb_url = "https://hotmelon-655ec.firebaseio.com/ppt.json";
+    var fb_url = "https://hotmelon-655ec.firebaseio.com/" + key + "-ppt.json";
     var ppt_len = 0;
     $.get(fb_url, function (data) {
         console.log(data);
@@ -238,7 +241,7 @@ if (isset($_GET["name"])) {
         var slides = $('#slides-content');
         slides.empty();
         var content = "";
-        for (key in ppt_content[index]) {
+        for (let key in ppt_content[index]) {
             var data = ppt_content[index][key];
             switch (key.substr(1)) {
                 case "figure":

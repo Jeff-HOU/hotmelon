@@ -32,8 +32,7 @@ if(!isset($_COOKIE["hot_melon_token"])) {
     if ($client->getRedirectUri() != "https://hotmelon.tech/gapi.php") {
         echo "<script>window.location = 'https://hotmelon.tech/gapi.php'</script> Redirecting...";
         die();
-    }
-    header("Location: ".$authUrl);
+    } header("Location: ".$authUrl);
     die;
 } else {
     //refresh an old one
@@ -42,8 +41,11 @@ if(!isset($_COOKIE["hot_melon_token"])) {
 }
 
 if ($client->isAccessTokenExpired()) {
-    unset($_COOKIE["hot_melon_token"]);
-    setcookie("hot_melon_token", json_encode($newAccessToken), -1, "/"); // 86400 = 1 day
+    $refreshToken = $client->getRefreshToken();
+    $client->refreshToken($refreshToken);
+    $newAccessToken = $client->getAccessToken();
+    $newAccessToken['refresh_token'] = $refreshToken;
+    setcookie("hot_melon_token", json_encode($newAccessToken), time() + (86400 * 30), "/"); // 86400 = 1 day
 }
 
 /*if (!$client->getAccessToken()) { // auth call to google
