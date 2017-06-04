@@ -5,7 +5,7 @@ It incorporates NLP to process the paper, an interactive voice-commanded chat bo
 
 ## Demo 
 ### Screenshots
-![alt text](./images/demo1.png "Demo1")
+![alt text](./images/demo1.png "Demo1")<br>
 ![alt text](./images/demo2.png "Demo2")
 
 ### Video
