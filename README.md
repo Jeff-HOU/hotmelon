@@ -36,7 +36,7 @@ It incorporates NLP to process the paper, an interactive voice-commanded chat bo
 1. md2gslides <br>
 
 ## source code: 
-* open source library: markdown to google slides: `http://github.com/json2markdown.py`
+* open source library: markdown to google slides and corrresponding interface program: `https://github.com/googlesamples/md2googleslides`,`https://github.com/Jeff-HOU/angelHack2017/blob/master/json2markdown.py`
 * main server built with php: `https://github.com/danvim/hotmelon.git`
 * extract data to present on google slides from articles: `https://github.com/pyliaorachel/hotmelon-parser` 
 * another server for integrating api.ai: `https://hotmelon.herokuapp.com`
