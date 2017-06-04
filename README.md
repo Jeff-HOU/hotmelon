@@ -9,7 +9,7 @@ It incorporates NLP to process the paper, an interactive voice-commanded chat bo
 ![alt text](./images/demo2.png "Demo2")
 
 ### Video
-<iframe width="560" height="315" src="https://www.youtube.com/embed/qmN0nTwWL8w" frameborder="0" allowfullscreen></iframe><br>
+[link to youtube demo video](https://youtu.be/qmN0nTwWL8w)<br>
 
 ## source code: 
 * open source library: markdown to google slides: `http://github.com/json2markdown.py`
